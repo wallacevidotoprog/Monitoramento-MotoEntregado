@@ -1,8 +1,10 @@
-const { add, update, remove } = require('../controller/delivery.Controller');
+const { add, update, remove, getAll } = require('../controller/delivery.Controller');
 const DeliveryRouter = require('express').Router();
+const { eAuth } = require("../middleware/Auth");
 
-DeliveryRouter.post('/delivery/add',add)
-DeliveryRouter.post('/delivery/update/:index',update)
-DeliveryRouter.post('/delivery/remove/:index',remove)
+DeliveryRouter.get('/delivery/getAll',eAuth,getAll)
+DeliveryRouter.post('/delivery/add',eAuth,add)
+DeliveryRouter.post('/delivery/update/:index',eAuth,update)
+DeliveryRouter.post('/delivery/remove/:index',eAuth,remove)
 
 module.exports = DeliveryRouter;

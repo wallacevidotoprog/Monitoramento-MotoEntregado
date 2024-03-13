@@ -1,9 +1,9 @@
 const routers = require("express").Router();
 const DeliveryRouter = require("./router/delivery.router");
 const MaintenanceRouter = require("./router/maintenance.Router");
-const UserRouter = require("./router/user.Router");
+//const UserRouter = require("./router/user.Router");
 
-routers.use(UserRouter);
+routers.use(require("./router/user.Router"));
 routers.use(DeliveryRouter);
 routers.use(MaintenanceRouter);
 

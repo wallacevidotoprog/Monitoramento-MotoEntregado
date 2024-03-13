@@ -1,10 +1,10 @@
 const MaintenanceRouter = require("express").Router();
-const { add, update, remove } = require("../controller/maintenance.Controller");
+const { add, update, remove, getAll } = require("../controller/maintenance.Controller");
+const { eAuth } = require("../middleware/Auth");
 
-
-MaintenanceRouter.post('/maintenance/add',add)
-MaintenanceRouter.post('/maintenance/update',update)
-MaintenanceRouter.post('/maintenance/remove',remove)
-
+MaintenanceRouter.get("/maintenance/getAll", eAuth, getAll);
+MaintenanceRouter.post("/maintenance/add", eAuth, add);
+MaintenanceRouter.post("/maintenance/update/:index", eAuth, update);
+MaintenanceRouter.post("/maintenance/remove/:index", eAuth, remove);
 
 module.exports = MaintenanceRouter;

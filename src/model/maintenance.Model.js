@@ -8,10 +8,10 @@ const Maintenance = Connection.define("maintenance", {
     primaryKey: true,
   },
   id_deliveryman: { type: DataTypes.INTEGER, allowNull: false },
-  date: { type: DataTypes.DATE },
-  plate: { type: DataTypes.STRING },
-  km: { type: DataTypes.INTEGER },
-  value: { type: DataTypes.DOUBLE },
+  date: { type: DataTypes.DATE , allowNull: false},
+  plate: { type: DataTypes.STRING , allowNull: false},
+  km: { type: DataTypes.INTEGER , allowNull: false},
+  value: { type: DataTypes.DOUBLE , allowNull: false},
 });
 Maintenance.sync();
 
