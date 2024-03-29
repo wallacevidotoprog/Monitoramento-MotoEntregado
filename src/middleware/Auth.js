@@ -2,6 +2,7 @@ const jwt = require('jsonwebtoken')
 
 module.exports ={
     eAuth: async (req,res,next)=>{
+        console.log(req.cookie);
         const tk = req.headers["authorization"];
         try {
             if(!tk){
@@ -19,11 +20,12 @@ module.exports ={
             }
             
             req.TOKEN = decod;
+            req.isVerity=true;
             next();
 
             
         } catch (error) {
-            return res.status(400).json({
+            return res.status(500).json({
                 err:true,
                 menssage:"Authentication error => "+error
             })

@@ -5,7 +5,9 @@ server.use(json());
 require("dotenv").config();
 
 server.use(cors({
-    origin:'*'
+    origin:true,
+    methods: "GET, POST, PUT, DELETE, OPTIONS, HEAD",
+    credentials:true
 }))
 
 const appRouter = require("./src/app");

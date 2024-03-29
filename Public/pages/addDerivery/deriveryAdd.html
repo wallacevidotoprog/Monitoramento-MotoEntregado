@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Derivery</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="page">
+      <form action="javascript: enviar();">
+        <label for="data">DATA</label>
+        <input type="datetime-local" name="date" id="date" />
+        <label for="value">VALOR</label>
+        <input type="number" name="value" id="date" placeholder="R$ 59,00" />
+        <label for="km">Kilometragem </label>
+        <input type="number" name="km" id="km" placeholder="99999" />
+        <label for="Rota">Rota</label>
+        <input
+          type="text"
+          name="router"
+          id="router"
+          placeholder="R: Auriflama, 79, Eldorado"
+        />
+        <div class="radio-inputs">
+          <label class="radio">
+            <input type="radio" name="radio" checked="true" />
+            <span class="name">Sem Taxa</span>
+          </label>
+          <label class="radio">
+            <input type="radio" name="radio" id="isRate" />
+            <span class="name">Com Taxa</span>
+          </label>
+          <label class="radio">
+            <input type="radio" name="radio" id="isIfood" />
+            <span class="name">IFOOD</span>
+          </label>
+          <label class="radio">
+            <input type="radio" name="radio" id="is Manupulation" />
+            <span class="name">Manipulação</span>
+          </label>
+        </div>
+        <input type="submit" value="Enviar" />
+      </form>
+    </div>
+  </body>
+  <script src="../../js/send-derivery.js"></script>
+</html>

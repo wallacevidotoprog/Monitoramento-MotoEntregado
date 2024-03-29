@@ -2,6 +2,7 @@ const Delivery = require("../model/delivery.model");
 
 module.exports = {
   getAll: async (req, res) => {
+    console.log("TOKEN = " + req.TOKEN.user);
     try {
       await Delivery.findAll()
         .then((data) => {
@@ -26,6 +27,7 @@ module.exports = {
   },
   add: async (req, res) => {
     try {
+      req.body.id_deliveryman = req.TOKEN.id;
       await Delivery.create(req.body)
         .then(() => {
           res.status(200).json({

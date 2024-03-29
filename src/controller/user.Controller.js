@@ -43,6 +43,7 @@ module.exports = {
     }
   },
   Login: async (req, res) => {
+    console.log( req.body);
     try {
       await Users.findOne({
         attributes: ["id_user", "user", "pass", "isAdmin"],
@@ -55,7 +56,6 @@ module.exports = {
             return res.status(400).json({
               err: true,
               menssage: "User does not exist",
-              data,
             });
           }
           if (await crypt.compare(req.body.pass, data.pass)) {
@@ -64,8 +64,9 @@ module.exports = {
               process.env.TOKEN,
               { expiresIn: "1d" }
             );
-            res.cookie("Authorization", TK);
-
+             res.cookie("Authorization", TK,{
+               //httpOnly:true
+             });
             return res.status(200).json({
               err: false,
               menssage: "Logged in successfully",
@@ -73,22 +74,28 @@ module.exports = {
           }
 
           return res.status(401).json({
-            err: false,
+            err: true,
             menssage: "User and Pass not is User",
           });
         })
         .catch((err) => {
           return res.status(400).json({
-            err: false,
+            err: true,
             menssage:
               "Something wrong when entering your email or password." + err,
           });
         });
     } catch (error) {
       return res.status(500).json({
-        err: false,
+        err: true,
         menssage: error,
       });
     }
   },
+  VerifyTK: async(req,res)=>{
+    res.status(200).json({
+      err: false,
+      menssage: "Verify true",
+    });
+  }
 };
