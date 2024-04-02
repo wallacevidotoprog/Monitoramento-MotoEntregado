@@ -1,7 +1,6 @@
 const jwt = require("jsonwebtoken");
 const crypt = require("bcryptjs");
 const Users = require("../model/user.Model");
-require("dotenv").config();
 
 async function VerifyExistUser(_user) {
   const result = await Users.findOne({
@@ -93,6 +92,7 @@ module.exports = {
     }
   },
   VerifyTK: async(req,res)=>{
+    
     res.status(200).json({
       err: false,
       menssage: "Verify true",

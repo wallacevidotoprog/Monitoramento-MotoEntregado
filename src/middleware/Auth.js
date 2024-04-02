@@ -2,7 +2,6 @@ const jwt = require('jsonwebtoken')
 
 module.exports ={
     eAuth: async (req,res,next)=>{
-        console.log(req.cookie);
         const tk = req.headers["authorization"];
         try {
             if(!tk){
