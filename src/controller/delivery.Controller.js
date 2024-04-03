@@ -2,8 +2,6 @@ const Delivery = require("../model/delivery.model");
 
 module.exports = {
   getAll: async (req, res) => {
-    console.log("TOKEN = " + req.TOKEN.user);
-    req.body.date = new Date()
     try {
       await Delivery.findAll()
         .then((data) => {
