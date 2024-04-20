@@ -12,6 +12,10 @@ const Maintenance = Connection.define("maintenance", {
   plate: { type: DataTypes.STRING , allowNull: false},
   km: { type: DataTypes.INTEGER , allowNull: false},
   value: { type: DataTypes.DOUBLE , allowNull: false},
+  type: { type: DataTypes.STRING , allowNull: false},
+  obs: { type: DataTypes.STRING , allowNull: false},
+  createdAt:{ type: DataTypes.DATE},
+  updatedAt:{ type: DataTypes.DATE}
 });
 Maintenance.sync();
 
