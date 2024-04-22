@@ -14,7 +14,7 @@ server.use(
   })
 );
 const appRouter = require("./src/app");
-const TypeMaintenace = require("./src/model/typeMaintenace.Model");
+
 server.use("/", require("express").static("./Public"));
 server.use("/api", appRouter);
 
