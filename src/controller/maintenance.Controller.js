@@ -26,6 +26,7 @@ module.exports = {
   },
   add: async (req, res) => {
     try {
+      req.body.id_deliveryman = req.TOKEN.id; 
       await Maintenance.create(req.body)
         .then(() => {
           res.status(200).json({

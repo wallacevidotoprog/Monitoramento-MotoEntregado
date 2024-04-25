@@ -7,9 +7,9 @@ const TypeMaintenace = Connection.define("typeMaintenace", {
     allowNull: false,
     primaryKey: true,
   },
-  type: { type: DataTypes.STRING , allowNull: false},
-  createdAt:{ type: DataTypes.DATE},
-  updatedAt:{ type: DataTypes.DATE}
+  type: { type: DataTypes.STRING, allowNull: false },
+  createdAt: { type: DataTypes.DATE },
+  updatedAt: { type: DataTypes.DATE },
 });
 TypeMaintenace.sync();
 module.exports = TypeMaintenace;

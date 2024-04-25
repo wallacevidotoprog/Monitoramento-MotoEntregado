@@ -27,7 +27,7 @@ module.exports = {
   add: async (req, res) => {
     console.log(req.body.date);
     try {
-      req.body.id_deliveryman = req.TOKEN.id;
+      req.body.id_deliveryman = req.TOKEN.id; 
       await Delivery.create(req.body)
         .then(() => {
           res.status(200).json({

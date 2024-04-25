@@ -1,10 +1,9 @@
-const { where } = require("sequelize");
 const TypeMaintenace = require("../model/typeMaintenace.Model");
 
 module.exports = {
   getAll: async (req, res) => {
     try {
-      await TypeMaintenace.findAll()
+      await TypeMaintenace.findAll({attributes:[['id_typeMaintenace','id'],'type']})
         .then((data) => {
           return res.status(200).json({
             err: false,
