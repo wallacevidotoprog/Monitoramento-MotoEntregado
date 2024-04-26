@@ -27,6 +27,7 @@ module.exports = {
   add: async (req, res) => {
     try {
       req.body.id_deliveryman = req.TOKEN.id; 
+      console.table(req.body)
       await Maintenance.create(req.body)
         .then(() => {
           res.status(200).json({
@@ -47,7 +48,7 @@ module.exports = {
       });
     }
   },
-  update: async (req, res) => {
+  update: async (req, res) => { 
     try {
       await Maintenance.update(req.body, {
         where: {
