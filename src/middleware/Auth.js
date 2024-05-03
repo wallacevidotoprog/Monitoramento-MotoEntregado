@@ -4,6 +4,7 @@ module.exports = {
   eAuth: async (req, res, next) => {
     try {
       const tk = req.headers["cookie"].split("=")[1];
+      //console.log(tk);
       if (!tk) {
         return res.status(401).json({
           err: true,

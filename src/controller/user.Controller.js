@@ -64,7 +64,7 @@ module.exports = {
               { expiresIn: "1d" }
             );
              res.cookie("Authorization", TK,{
-               //httpOnly:true
+               httpOnly:true
              });
             return res.status(200).json({
               err: false,
@@ -97,5 +97,26 @@ module.exports = {
       err: false,
       menssage: "Verify true",
     });
+  },
+  Logout: async (req,res)=>{
+    const token = req.TOKEN;
+    console.log(token);
+    try {
+      res.cookie("Authorization", null,{
+        httpOnly:true
+      });
+      res.status(200).json({
+        err: false,
+        menssage: "Ok",
+      });
+    } catch (error) {
+      res.status(401).json({
+        err: true,
+        menssage: error,
+      });
+    }
+  },
+  getUser: async (id)=>{
+    return await Users.findByPk(id).then((resp)=>{return resp.user})
   }
 };

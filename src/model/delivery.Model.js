@@ -1,4 +1,5 @@
 const { DataTypes, Connection } = require("../database/database");
+const Users = require("./user.Model");
 
 const Delivery = Connection.define("delivery", {
   id_delivery: {
@@ -17,6 +18,12 @@ const Delivery = Connection.define("delivery", {
   isIfood: { type: DataTypes.BOOLEAN },
   isManipulation: { type: DataTypes.BOOLEAN },
 });
-Delivery.sync();
+
+// Users.hasMany(Delivery, {
+//   as: 'users',
+//   foreignKey: 'id_deliveryman',
+//   sourceKey: 'id_user'
+// });
+//Delivery.sync({ alter: true });
 
 module.exports = Delivery;
